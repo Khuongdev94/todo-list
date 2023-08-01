@@ -89,7 +89,7 @@ function renderListWork() {
                 </td>
                 <td>
                 <button onclick="doneWork(${item.id})">
-                    Wait
+                    ${item.status === true ? "Done" : "Wait"}
                 </button>
                 </td>
             </tr>`;
