@@ -1,5 +1,5 @@
 var conditions = {
-  perPage: 3,
+  perPage: 6,
   currentPage: 1,
 };
 
@@ -14,6 +14,11 @@ var Work = [
   { id: 8, name: "lunch break" },
   { id: 9, name: "having lunch" },
   { id: 10, name: "gaming" },
+  { id: 11, name: "sleep" },
+  { id: 12, name: "read a book" },
+  { id: 13, name: "drink water" },
+  { id: 14, name: "work" },
+  { id: 15, name: "go home" },
 ];
 
 renderListWork();
@@ -51,15 +56,6 @@ function clear() {
   document.getElementById("name").value = "";
 }
 
-function doneWork(id) {
-  var work = Work.find((item) => item.id === id);
-  work.id = work.id;
-  work.name = work.name;
-  work.status = true;
-
-  renderListWork();
-}
-
 function condition() {
   let newWork = JSON.parse(JSON.stringify(Work));
 
@@ -77,11 +73,15 @@ function condition() {
 function renderListWork() {
   var array = condition();
   var data = array.map((item) => {
-    data = `<tr>
+    data = `<tr ${
+      item.status === true ? 'style="background-color: #888;color:white"' : ""
+    }>
                 <td>${item.id}</td>
-                <td>${
-                  item.status === true ? 'style = "color:red"' : item.name
-                }</td>
+                <td ${
+                  item.status === true
+                    ? 'style="text-decoration: line-through"'
+                    : ""
+                }>${item.name}</td>
                 <td>
                 <button onclick="editWork(${item.id})">
                     Edit
@@ -97,6 +97,14 @@ function renderListWork() {
   });
 
   document.getElementById("tableWork").innerHTML = data.join("");
+}
+
+function doneWork(id) {
+  var work = Work.find((item) => item.id === id);
+  work.id = work.id;
+  work.name = work.name;
+  work.status = !work.status;
+  renderListWork();
 }
 
 var idUPdate;
