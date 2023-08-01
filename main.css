@@ -9,17 +9,13 @@ h2 {
     
     .panel-body {
       width: 89%;
-      background-color: rgba(77, 188, 188, 0.3);
+      background-color: #F44336;
       padding: 10px;
       border: 1px rgba(23, 138, 117, 0.7) solid;
       border-radius: 5px;
       margin: 0 auto;
     }
-    
-    /* .panel-body label {
-      font-weight: bold;
-    } */
-    
+   
     form {
       display: block;
       width: 100%;
@@ -46,34 +42,27 @@ h2 {
       font-size: 16px;
       border-radius: 3px;
       border: 1px blue solid;
-      background-color: rgba(245, 245, 220, 0.764);
+      background-color: #fff;
     }
   
     .table {
       width: 91%;
-      margin: 0 auto;
+      margin: 10px auto;
     }
   
     table, th, td{
-      border: 1px solid blue;
       text-align: center;
-      margin: 0 auto;
+      font-size: 18px;
     }
   
     table{
         border-collapse: collapse;
     }
-    th {
-      font-size: 18px;
-    }
-  
-    #menu ul {
-      margin-top: 20px;
-    }
   
     ul {
       display: inline-block;
     }
+
     li {
       list-style: none;
       display: inline;
@@ -86,9 +75,12 @@ h2 {
       font-weight: bold;
     }
   
-    li:hover {
-      font-weight: bolder;
-      background-color: rgba(237, 237, 243, 0.841);
+    tr:hover {
+      background-color: #eee;
+      border: 1px blue solid;
+    }
+    tr:nth-child(even) {
+        background-color: #eee;
     }
     #totalitem {
       cursor: none;
@@ -110,20 +102,27 @@ h2 {
       box-shadow: 0 0 3px 2px rgba(0, 255, 149, 0.609);
       background-color: rgba(245, 245, 220, 0.2);
     }
+
     .btn-search {
       padding: 2px 20px;
       height: 35px;
       box-sizing: border-box;
-      background-color: rgba(245, 245, 220, 0.764);
+      background-color: #D9D9D9;
       text-align: center;
       color: blue;
-      font-size: 14px;
+      font-size: 18px;
       border: 1px rgba(10, 14, 140, 0.841) solid;
       border-radius: 4px;
       
     }
+
     #listNumberPage {
       margin-right: 20px auto;
       text-align: right;
+    }
+
+    .complete{
+        background-color: #D9D9D9;
+        border: none;
     }
   
