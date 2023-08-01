@@ -1,6 +1,7 @@
 h2 {
     text-align: center;
     margin: 0;
+    color: #fff;
   }
   .panel {
       width: 100%;
@@ -49,7 +50,14 @@ h2 {
       width: 91%;
       margin: 10px auto;
     }
-  
+
+    th {
+        text-align: center;
+        font-size: 18px;
+        background-color: #eee;
+        height: 32px;
+      }
+
     table, th, td{
       text-align: center;
       font-size: 18px;
@@ -101,7 +109,7 @@ h2 {
   
     button:hover { 
       box-shadow: 0 0 3px 2px rgba(0, 255, 149, 0.609);
-      background-color: rgba(245, 245, 220, 0.2);
+      background-color: #eee;
     }
 
     .btn-search {
