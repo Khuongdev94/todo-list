@@ -11,6 +11,10 @@ var Work = [
     { id: 4, name: "have breakfast"},
     { id: 5, name: "wear clothes"},
     { id: 6, name: "take the backpack"},
+    { id: 7, name: "go to work"},
+    { id: 8, name: "lunch break"},
+    { id: 9, name: "having lunch"},
+    { id: 10, name: "gaming"},
 
 ];
 
