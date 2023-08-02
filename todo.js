@@ -24,14 +24,15 @@ var Work = [
 renderListWork();
 
 function addWork() {
-  var id = Date.now();
+  var arr = Work.map((item) => item.id);
+  var id = Math.max(...arr) + 1;
   var name = document.getElementById("name").value;
   var data = { id: id, name: name, status: false };
   var isValid = check(data);
   if (!isValid) {
     return;
   }
-  Work.unshift(data);
+  Work.push(data);
   renderListWork();
   clear();
   getPage(1);
