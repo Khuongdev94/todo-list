@@ -83,7 +83,9 @@ function renderListWork() {
                     : ""
                 }>${item.name}</td>
                 <td>
-                <button onclick="editWork(${item.id})">
+                <button ${
+                  item.status === true ? 'style = "display : none"' : ""
+                } onclick="editWork(${item.id})">
                     Edit
                 </button>
                 </td>
@@ -110,21 +112,26 @@ function doneWork(id) {
 var idUPdate;
 function editWork(id) {
   idUPdate = id;
+  console.log(idUPdate);
   var work = Work.find((item) => item.id === id);
-  document.getElementById("name").value = work.name;
+  document.getElementById("edit").value = work.name;
+  document.getElementById("modalEdit").style.display = "block";
 }
 
 function updateWork() {
-  var work = Work.find((item) => item.name === idUPdate);
-  work.id = work.id;
-  work.name = document.getElementById("name").value;
-  var pram = { id: work.id, name: work.name };
+  console.log(idUPdate);
+  var works = Work.find((item) => item.id === idUPdate);
+  works.id = works.id;
+  works.name = document.getElementById("edit").value;
+  var pram = { id: works.id, name: works.name };
   var isValid = check(pram);
   if (!isValid) {
     return;
   }
   renderListWork();
-  clear();
+  id = "";
+  document.getElementById("edit").value = "";
+  document.getElementById("modalEdit").style.display = "none";
 }
 
 function renderNumberPage(length) {
@@ -141,4 +148,7 @@ function renderNumberPage(length) {
 function getPage(i) {
   conditions.currentPage = i;
   renderListWork();
+}
+function closeModal() {
+  document.getElementById("modalEdit").style.display = "none";
 }
