@@ -1,9 +1,9 @@
-var conditions = {
+const conditions = {
   perPage: 6,
   currentPage: 1,
 };
 
-var Work = [
+const Work = [
   { id: 1, name: "wake up" },
   { id: 2, name: "brush one's teeth" },
   { id: 3, name: "wash one's face" },
@@ -24,11 +24,11 @@ var Work = [
 renderListWork();
 
 function addWork() {
-  var arr = Work.map((item) => item.id);
-  var id = Math.max(...arr) + 1;
-  var name = document.getElementById("name").value;
-  var data = { id: id, name: name, status: false };
-  var isValid = check(data);
+  const arr = Work.map((item) => item.id);
+  const id = Math.max(...arr) + 1;
+  const name = document.getElementById("name").value;
+  const data = { id: id, name: name, status: false };
+  const isValid = check(data);
   if (!isValid) {
     return;
   }
@@ -60,7 +60,7 @@ function clear() {
 function condition() {
   let newWork = JSON.parse(JSON.stringify(Work));
 
-  var totalItem = newWork.length;
+  const totalItem = newWork.length;
   renderNumberPage(totalItem);
   document.getElementById("totalitem").innerHTML = `${totalItem} work`;
 
@@ -72,7 +72,7 @@ function condition() {
 }
 
 function renderListWork() {
-  var array = condition();
+  const array = condition();
   var data = array.map((item) => {
     data = `<tr ${
       item.status === true ? 'style="background-color: #888;color:white"' : ""
@@ -103,29 +103,27 @@ function renderListWork() {
 }
 
 function doneWork(id) {
-  var work = Work.find((item) => item.id === id);
+  const work = Work.find((item) => item.id === id);
   work.id = work.id;
   work.name = work.name;
   work.status = !work.status;
   renderListWork();
 }
 
-var idUPdate;
+let idUPdate;
 function editWork(id) {
   idUPdate = id;
-  console.log(idUPdate);
-  var work = Work.find((item) => item.id === id);
+  const work = Work.find((item) => item.id === id);
   document.getElementById("edit").value = work.name;
   document.getElementById("modalEdit").style.display = "block";
 }
 
 function updateWork() {
-  console.log(idUPdate);
-  var works = Work.find((item) => item.id === idUPdate);
+  const works = Work.find((item) => item.id === idUPdate);
   works.id = works.id;
   works.name = document.getElementById("edit").value;
-  var pram = { id: works.id, name: works.name };
-  var isValid = check(pram);
+  const pram = { id: works.id, name: works.name };
+  const isValid = check(pram);
   if (!isValid) {
     return;
   }
@@ -136,7 +134,7 @@ function updateWork() {
 }
 
 function renderNumberPage(length) {
-  var totalPage = Math.ceil(length / conditions.perPage);
+  const totalPage = Math.ceil(length / conditions.perPage);
   let list = "";
   for (let i = 1; i <= totalPage; i++) {
     list += `<li ${
